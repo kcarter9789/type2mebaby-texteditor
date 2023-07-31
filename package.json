@@ -1,0 +1,29 @@
+{
+  "name": "just-another-text-editor",
+  "version": "1.0.0",
+  "description": "This project aims to build a text editor that runs in the browser and fulfills the criteria of a Progressive Web Application (PWA). The application will also utilize various data persistence techniques to ensure redundancy, even in offline scenarios.",
+  "main": "server.js",
+  "scripts": {
+    "dev": "webpack-dev-server",
+    "start:dev": "concurrently \"cd server && npm run server\" \"cd client && npm run dev\"",
+    "start": "npm run build && cd server && node server.js",
+    "server": "cd server nodemon server.js --ignore client",
+    "build": "cd client && npm run build",
+    "clean": "rimraf node_modules && cd client && rimraf node_modules && cd ../server && rimraf node_modules && cd ../client && rimraf dist",
+
+    "install": "cd client && npm install",
+    "client": "cd client && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "if-env": "^1.0.4"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4",
+    "rimraf": "^5.0.1"
+  }
+}
